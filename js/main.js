@@ -45,6 +45,8 @@ function update (event){
     if(event.keyCode == 40 && direction != "up") direction = "down";
 }
 
+/* PRA RODAR O JOGO */
+
 function iniciarJogo() {
 
     /* para a cobrinha sair e voltar pra tela */
@@ -67,8 +69,12 @@ function iniciarJogo() {
     if(direction == "up") snakeY -= box;
     if(direction == "down") snakeY += box;
 
+    if (snakeX != food.x || snakeY != food.y) {
     snake.pop(); /*tira o ultimo elemento do array*/
-
+    } else { 
+        food.x = Math.floor (Math.random() * 15 + 1) * box;
+        food.y = Math.floor (Math.random() * 15 + 1) * box; 
+    }
     /*cabeça móvel da cobrinha; " 'unshift' - acrescenta uma no primeiro elemento*/
     let newHead = {
         x: snakeX,
