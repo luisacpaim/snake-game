@@ -11,6 +11,13 @@ snake [0] = {
 /*Variável para que a cobrinha ande: */
 let direction = "right";
 
+/*Criando comida*/
+let food = {
+    x: Math.floor (Math.random() * 15 + 1) * box, /* o math floor retira os decimais, limitando o random a numeros inteiros */
+    y: Math.floor (Math.random() * 15 + 1) * box
+}
+
+/* funções que criam os elementos do jogo */
 function criarBG() {
     context.fillStyle = "lightgreen";
     context.fillRect (0, 0, 16 * box, 16 * box);
@@ -21,6 +28,11 @@ function criarCobrinha() {
         context.fillStyle = "green";
         context.fillRect(snake[i].x, snake[i].y, box, box);
     }
+}
+
+function drawFood() {
+    context.fillStyle = "red";
+    context.fillRect(food.x, food.y, box, box)
 }
 
 /* movimento da cobrinha pela tela. (não entendi o porque dos 37 a 40) */
@@ -44,6 +56,7 @@ function iniciarJogo() {
 
     criarBG();
     criarCobrinha();
+    drawFood();
 
     /* definindo ponto de partida da cobrinha, para quando jogo for resetado */
     let snakeX = snake[0].x;
