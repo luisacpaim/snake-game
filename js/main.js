@@ -31,7 +31,7 @@ function criarCobrinha() {
 }
 
 function drawFood() {
-    context.fillStyle = "red";
+    context.fillStyle = "pink";
     context.fillRect(food.x, food.y, box, box)
 }
 
@@ -59,7 +59,7 @@ function iniciarJogo() {
     for (i = 1; i < snake.length; i++) {
         if (snake[0].x == snake[i].x && snake[0].y == snake[i].y) {
             clearInterval(jogo);
-            alert('Jogo encerrado :(');
+            alert('Jogo :(');
         }
     }
 
